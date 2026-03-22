@@ -3,22 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PrimeField Limited Products - Fresh Eggs, Live Catfish, Smoked Fish, Day-Old Chicks, and Poultry Feed.">
+    <meta name="description" content="Browse PrimeField Limited's premium products - Fresh Eggs, Live Catfish, Smoked Fish, Day-Old Chicks, and Poultry Feed.">
     <title>Our Products | PrimeField Limited</title>
     <link rel="icon" href="logo1.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="logo1.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
             --primary: #1a5d1a;
             --primary-dark: #0d3d0d;
             --primary-light: #3d8b3d;
             --secondary: #f4a024;
+            --secondary-dark: #d4850a;
+            --accent: #2980b9;
+            --accent-light: #5dade2;
             --white: #ffffff;
+            --light: #f8f9fa;
             --cream: #faf8f5;
             --dark: #1a1a2e;
             --gray: #6c757d;
@@ -29,103 +39,2488 @@
             --shadow: 0 10px 40px rgba(0,0,0,0.1);
             --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
         }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: var(--dark); background: var(--cream); overflow-x: hidden; }
 
-        .preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--gradient-1); display: flex; justify-content: center; align-items: center; z-index: 99999; transition: opacity 0.5s, visibility 0.5s; }
-        .preloader.hidden { opacity: 0; visibility: hidden; }
-        .preloader-content { text-align: center; color: var(--white); }
-        .preloader-logo { margin-bottom: 20px; animation: pulse 1.5s infinite; }
-        .preloader-logo img { width: 120px; height: 120px; object-fit: contain; border-radius: 20px; background: var(--white); padding: 10px; }
-        .preloader-text { font-size: 1.5rem; font-weight: 700; margin-top: 15px; }
-        .loader { width: 60px; height: 60px; border: 4px solid rgba(255,255,255,0.3); border-top-color: var(--secondary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        html {
+            scroll-behavior: smooth;
+        }
 
-        .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(255,255,255,0.98); box-shadow: var(--shadow); }
-        .logo { display: flex; align-items: center; gap: 12px; font-size: 1.8rem; font-weight: 800; text-decoration: none; color: var(--primary); }
-        .logo-img { width: 55px; height: 55px; object-fit: contain; border-radius: 12px; }
-        .logo span { color: var(--secondary); }
-        .nav-links { display: flex; list-style: none; gap: 35px; align-items: center; }
-        .nav-links a { text-decoration: none; font-weight: 500; font-size: 0.95rem; color: var(--dark); position: relative; transition: color 0.3s; }
-        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--secondary); transition: width 0.3s; }
-        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-        .nav-btn { background: var(--gradient-2); color: var(--dark) !important; padding: 12px 28px !important; border-radius: 50px; font-weight: 600 !important; }
-        .nav-btn::after { display: none !important; }
-        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
-        .hamburger span { width: 30px; height: 3px; background: var(--dark); border-radius: 3px; transition: all 0.3s; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: var(--cream);
+        }
 
-        .page-hero { padding: 180px 5% 100px; background: linear-gradient(135deg, rgba(26,93,26,0.95) 0%, rgba(13,61,13,0.9) 100%), url('https://images.unsplash.com/photo-1569288052389-dac9b0ac9eac?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80'); background-size: cover; background-position: center; text-align: center; position: relative; }
-        .page-hero::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, var(--cream), transparent); }
-        .page-hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
-        .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: var(--white); margin-bottom: 20px; }
-        .page-hero h1 span { color: var(--secondary); }
-        .page-hero p { font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: 30px; }
-        .breadcrumb { display: flex; justify-content: center; gap: 15px; align-items: center; }
-        .breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
-        .breadcrumb i { color: var(--secondary); font-size: 0.8rem; }
-        .breadcrumb span { color: var(--secondary); font-weight: 600; }
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
 
-        .product-filter { padding: 40px 5%; background: var(--white); border-bottom: 1px solid var(--light-gray); }
-        .filter-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .filter-btn { padding: 12px 30px; border: 2px solid var(--light-gray); background: var(--white); border-radius: 50px; font-size: 0.95rem; font-weight: 500; cursor: pointer; transition: all 0.3s; font-family: 'Poppins', sans-serif; }
-        .filter-btn:hover, .filter-btn.active { background: var(--gradient-1); color: var(--white); border-color: var(--primary); }
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
 
-        .products-section { padding: 80px 5%; background: var(--cream); }
-        .products-container { max-width: 1400px; margin: 0 auto; }
-        .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .preloader-content {
+            text-align: center;
+            color: var(--white);
+        }
 
-        .product-card { background: var(--white); border-radius: 25px; overflow: hidden; transition: all 0.4s; position: relative; }
-        .product-card:hover { transform: translateY(-15px); box-shadow: var(--shadow-lg); }
-        .product-badge { position: absolute; top: 20px; left: 20px; background: var(--gradient-2); color: var(--dark); padding: 8px 18px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; z-index: 2; }
-        .product-badge.new { background: var(--gradient-3); color: var(--white); }
-        .product-badge.sale { background: #e74c3c; color: var(--white); }
-        .product-image { height: 280px; overflow: hidden; position: relative; }
-        .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .product-card:hover .product-image img { transform: scale(1.1); }
-        .product-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 20px; }
-        .product-card:hover .product-overlay { opacity: 1; }
-        .quick-view-btn { padding: 10px 25px; background: var(--white); color: var(--dark); border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: 'Poppins', sans-serif; }
-        .quick-view-btn:hover { background: var(--gradient-2); }
-        .product-content { padding: 30px; }
-        .product-category { color: var(--primary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
-        .product-title { font-size: 1.4rem; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
-        .product-description { color: var(--gray); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.7; }
-        .product-features { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
-        .product-feature { display: flex; align-items: center; gap: 5px; font-size: 0.85rem; color: var(--gray); }
-        .product-feature i { color: var(--primary); }
-        .product-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid var(--light-gray); }
-        .product-price { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
-        .product-price span { font-size: 0.85rem; font-weight: 400; color: var(--gray); }
-        .product-price .old-price { text-decoration: line-through; color: var(--gray); font-size: 1rem; margin-right: 10px; }
-        .add-to-cart-btn { display: flex; align-items: center; gap: 8px; padding: 12px 25px; background: var(--gradient-1); color: var(--white); border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: 'Poppins', sans-serif; }
-        .add-to-cart-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(26,93,26,0.3); }
+        .preloader-logo {
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite;
+        }
 
-        .wholesale-section { padding: 100px 5%; background: var(--gradient-1); position: relative; overflow: hidden; }
-        .wholesale-section::before { content: ''; position: absolute; top: -50%; right: -20%; width: 800px; height: 800px; background: rgba(255,255,255,0.05); border-radius: 50%; }
-        .wholesale-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
-        .wholesale-content h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: var(--white); margin-bottom: 20px; }
-        .wholesale-content h2 span { color: var(--secondary); }
-        .wholesale-content p { color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-bottom: 30px; line-height: 1.8; }
-        .wholesale-features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
-        .wholesale-feature { display: flex; align-items: center; gap: 15px; color: var(--white); }
-        .wholesale-feature i { width: 40px; height: 40px; background: var(--gradient-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--dark); }
-        .wholesale-image { position: relative; }
-        .wholesale-image img { width: 100%; border-radius: 30px; box-shadow: var(--shadow-lg); }
-        .wholesale-badge { position: absolute; bottom: -20px; right: -20px; background: var(--gradient-2); color: var(--dark); padding: 25px 35px; border-radius: 20px; text-align: center; box-shadow: var(--shadow); }
-        .wholesale-badge h3 { font-size: 2rem; font-weight: 800; }
-        .wholesale-badge p { font-size: 0.9rem; margin: 0; }
-        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 36px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s; font-size: 1rem; }
-        .btn-secondary { background: var(--white); color: var(--dark); }
-        .btn-secondary:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .preloader-logo img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 20px;
+            background: var(--white);
+            padding: 10px;
+        }
 
-        .footer { background: var(--dark); color: var(--white); padding-top: 80px; }
-        .footer-container { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .footer-brand .logo { margin-bottom: 25px; color: var(--white); }
-        .footer-brand p { color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 25px; }
-        .footer-social { display: flex; gap: 15px; }
-        .footer-social a { width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: all 0.3s; }
-        .footer-social a:hover { background: var(--gradient-2); color: var(--dark); transform: translateY(-5px); }
-        .footer-column h3 { font-
+        .preloader-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 15px;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top-color: var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background: rgba(255,255,255,0.98);
+            box-shadow: var(--shadow);
+        }
+
+        .navbar .logo {
+            color: var(--primary);
+        }
+
+        .navbar .nav-links a {
+            color: var(--dark);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-btn {
+            background: var(--gradient-2);
+            color: var(--dark) !important;
+            padding: 12px 28px !important;
+            border-radius: 50px;
+            font-weight: 600 !important;
+            transition: transform 0.3s, box-shadow 0.3s !important;
+        }
+
+        .nav-btn::after {
+            display: none !important;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(244, 160, 36, 0.4);
+            color: var(--dark) !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: var(--dark);
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 180px 5% 100px;
+            background: linear-gradient(135deg, rgba(26, 93, 26, 0.95) 0%, rgba(13, 61, 13, 0.9) 100%),
+                        url('https://images.unsplash.com/photo-1569288052389-dac9b0ac9eac?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, var(--cream), transparent);
+        }
+
+        .page-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .page-hero h1 span {
+            color: var(--secondary);
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .breadcrumb a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary);
+        }
+
+        .breadcrumb i {
+            color: var(--secondary);
+            font-size: 0.8rem;
+        }
+
+        .breadcrumb span {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Product Filter */
+        .product-filter {
+            padding: 40px 5%;
+            background: var(--white);
+            border-bottom: 1px solid var(--light-gray);
+            position: sticky;
+            top: 95px;
+            z-index: 100;
+        }
+
+        .filter-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 30px;
+            border: 2px solid var(--light-gray);
+            background: var(--white);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gradient-1);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 80px 5%;
+            background: var(--cream);
+        }
+
+        .products-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .products-count {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .products-count span {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .products-sort {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .products-sort label {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .products-sort select {
+            padding: 10px 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            cursor: pointer;
+            background: var(--white);
+        }
+
+        .products-sort select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--gradient-2);
+            color: var(--dark);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-badge.new {
+            background: var(--gradient-3);
+            color: var(--white);
+        }
+
+        .product-badge.sale {
+            background: #e74c3c;
+            color: var(--white);
+        }
+
+        .product-badge.organic {
+            background: var(--gradient-1);
+            color: var(--white);
+        }
+
+        .product-wishlist {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        .product-wishlist:hover {
+            background: #e74c3c;
+            color: var(--white);
+        }
+
+        .product-wishlist.active {
+            background: #e74c3c;
+            color: var(--white);
+        }
+
+        .product-image {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 20px;
+        }
+
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+
+        .quick-view-btn {
+            padding: 12px 30px;
+            background: var(--white);
+            color: var(--dark);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quick-view-btn:hover {
+            background: var(--gradient-2);
+        }
+
+        .product-content {
+            padding: 30px;
+        }
+
+        .product-category {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+
+        .product-title:hover {
+            color: var(--primary);
+        }
+
+        .product-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .product-features {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .product-feature {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            color: var(--gray);
+            background: var(--cream);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        .product-feature i {
+            color: var(--primary);
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .product-rating .stars {
+            color: var(--secondary);
+        }
+
+        .product-rating .count {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .product-price span {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--gray);
+        }
+
+        .product-price .old-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+
+        .add-to-cart-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--gradient-1);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .add-to-cart-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(26, 93, 26, 0.3);
+        }
+
+        /* No Products */
+        .no-products {
+            text-align: center;
+            padding: 80px 20px;
+            grid-column: 1 / -1;
+        }
+
+        .no-products i {
+            font-size: 4rem;
+            color: var(--light-gray);
+            margin-bottom: 20px;
+        }
+
+        .no-products h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .no-products p {
+            color: var(--gray);
+        }
+
+        /* Wholesale Section */
+        .wholesale-section {
+            padding: 100px 5%;
+            background: var(--gradient-1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wholesale-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .wholesale-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(244, 160, 36, 0.1);
+            border-radius: 50%;
+        }
+
+        .wholesale-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .wholesale-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .wholesale-content h2 span {
+            color: var(--secondary);
+        }
+
+        .wholesale-content p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .wholesale-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .wholesale-feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--white);
+        }
+
+        .wholesale-feature i {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        .wholesale-image {
+            position: relative;
+        }
+
+        .wholesale-image img {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .wholesale-badge {
+            position: absolute;
+            bottom: -25px;
+            right: -25px;
+            background: var(--gradient-2);
+            color: var(--dark);
+            padding: 30px 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .wholesale-badge h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .wholesale-badge p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--dark);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(26, 93, 26, 0.4);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 5%;
+            background: var(--white);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle::before,
+        .section-subtitle::after {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .section-description {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .faq-item {
+            background: var(--cream);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(26, 93, 26, 0.05);
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            padding-right: 20px;
+        }
+
+        .faq-question i {
+            font-size: 1.2rem;
+            color: var(--primary);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 30px 25px;
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 5%;
+            background: var(--gradient-2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-container h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .cta-container p {
+            color: var(--dark);
+            opacity: 0.8;
+            font-size: 1.15rem;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 25px;
+            color: var(--white);
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover {
+            background: var(--gradient-2);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 3px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 10px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact-item i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .footer-contact-item p {
+            color: rgba(255,255,255,0.7);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            padding: 25px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.3rem;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s;
+            z-index: 999;
+            box-shadow: var(--shadow);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background: var(--gradient-2);
+            color: var(--dark);
+        }
+
+        /* Quick View Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 25px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: var(--gradient-1);
+            color: var(--white);
+        }
+
+        .modal-image {
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 25px 0 0 25px;
+        }
+
+        .modal-details {
+            padding: 40px;
+        }
+
+        .modal-category {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .modal-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .modal-price span {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .modal-description {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .modal-features {
+            margin-bottom: 30px;
+        }
+
+        .modal-features h4 {
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .modal-features ul {
+            list-style: none;
+        }
+
+        .modal-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: var(--gray);
+        }
+
+        .modal-features li i {
+            color: var(--primary);
+        }
+
+        .modal-quantity {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .modal-quantity label {
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            border: 2px solid var(--light-gray);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .quantity-btn {
+            width: 45px;
+            height: 45px;
+            border: none;
+            background: var(--cream);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background: var(--gradient-1);
+            color: var(--white);
+        }
+
+        .quantity-input {
+            width: 60px;
+            height: 45px;
+            border: none;
+            text-align: center;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .quantity-input:focus {
+            outline: none;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .modal-actions .btn {
+            flex: 1;
+            justify-content: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                padding: 50px;
+                transition: right 0.4s;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                color: var(--dark);
+                font-size: 1.2rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .wholesale-container {
+                grid-template-columns: 1fr;
+            }
+
+            .wholesale-image {
+                order: -1;
+            }
+
+            .wholesale-badge {
+                bottom: -15px;
+                right: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modal-content {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-image {
+                min-height: 250px;
+            }
+
+            .modal-image img {
+                border-radius: 25px 25px 0 0;
+            }
+
+            .product-filter {
+                position: relative;
+                top: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wholesale-features {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-links a {
+                justify-content: center;
+            }
+
+            .footer-contact-item {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .product-footer {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .add-to-cart-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .products-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 14px 28px;
+                font-size: 0.9rem;
+            }
+
+            .logo-img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+
+            .modal-details {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <img src="logo1.jpg" alt="PrimeField Limited Logo">
+            </div>
+            <div class="preloader-text">PrimeField Limited</div>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo1.jpg" alt="PrimeField Logo" class="logo-img">
+            PrimeField <span>Limited</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html" class="active">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="quote.html" class="nav-btn">Get Quote</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content" data-aos="fade-up">
+            <h1>Our <span>Products</span></h1>
+            <p>Premium quality farm products delivered fresh to your doorstep.</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Products</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Filter -->
+    <section class="product-filter">
+        <div class="filter-container" data-aos="fade-up">
+            <button class="filter-btn active" data-filter="all">All Products</button>
+            <button class="filter-btn" data-filter="eggs">Eggs</button>
+            <button class="filter-btn" data-filter="catfish">Catfish</button>
+            <button class="filter-btn" data-filter="chicks">Day-Old Chicks</button>
+            <button class="filter-btn" data-filter="feed">Poultry Feed</button>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="products-container">
+            <div class="products-header">
+                <p class="products-count">Showing <span id="productCount">12</span> products</p>
+                <div class="products-sort">
+                    <label for="sortSelect">Sort by:</label>
+                    <select id="sortSelect">
+                        <option value="default">Default</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name A-Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-category="eggs" data-price="2500" data-name="Premium Layer Eggs" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-badge">Best Seller</div>
+                    <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Premium Layer Eggs">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openModal(this)">
+                                <i class="fas fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Eggs</div>
+                        <h3 class="product-title">Premium Layer Eggs</h3>
+                        <p class="product-description">Farm-fresh eggs from free-range hens. Rich in protein, vitamins, and omega-3 fatty acids.</p>
+                        <div class="product-features">
+                            <span class="product-feature"><i class="fas fa-check"></i> Free Range</span>
+                            <span class="product-feature"><i class="fas fa-check"></i> Organic</span>
+                            <span class="product-feature"><i class="fas fa-check"></i> Fresh Daily</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="count">(124 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₦2,500 <span>/crate</span></div>
+                            <button class="add-to-cart-btn" onclick="orderProduct('Premium Layer Eggs', '₦2,500/crate')">
+                                <i class="fas fa-shopping-cart"></i> Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-category="eggs" data-price="3000" data-name="Jumbo Size Eggs" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-badge new">New</div>
+                    <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1569288052389-dac9b0ac9eac?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Jumbo Eggs">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openModal(this)">
+                                <i class="fas fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Eggs</div>
+                        <h3 class="product-title">Jumbo Size Eggs</h3>
+                        <p class="product-description">Extra-large eggs perfect for baking and commercial use. Premium quality guaranteed.</p>
+                        <div class="product-features">
+                            <span class="product-feature"><i class="fas fa-check"></i> Extra Large</span>
+                            <span class="product-feature"><i class="fas fa-check"></i> Premium</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="count">(89 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₦3,000 <span>/crate</span></div>
+                            <button class="add-to-cart-btn" onclick="orderProduct('Jumbo Size Eggs', '₦3,000/crate')">
+                                <i class="fas fa-shopping-cart"></i> Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-category="catfish" data-price="2000" data-name="Live Catfish" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-badge">Popular</div>
+                    <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Live Catfish">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openModal(this)">
+                                <i class="fas fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Catfish</div>
+                        <h3 class="product-title">Live Catfish (1kg+)</h3>
+                        <p class="product-description">Healthy, farm-raised catfish. Freshly harvested and available live or processed.</p>
+                        <div class="product-features">
+                            <span class="product-feature"><i class="fas fa-check"></i> Farm Raised</span>
+                            <span class="product-feature"><i class="fas fa-check"></i> Healthy</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="count">(156 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₦2,000 <span>/kg</span></div>
+                            <button class="add-to-cart-btn" onclick="orderProduct('Live Catfish (1kg+)', '₦2,000/kg')">
+                                <i class="fas fa-shopping-cart"></i> Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" data-category="catfish" data-price="3500" data-name="Smoked Catfish" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-badge sale">Sale</div>
+                    <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Smoked Catfish">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openModal(this)">
+                                <i class="fas fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Catfish</div>
+                        <h3 class="product-title">Smoked Catfish</h3>
+                        <p class="product-description">Traditionally smoked catfish with rich, authentic flavor. Ready to cook or eat.</p>
+                        <div class="product-features">
+                            <span class="product-feature"><i class="fas fa-check"></i> Traditional</span>
+                            <span class="product-feature"><i class="fas fa-check"></i> Ready to Use</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="count">(78 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                <span class="old-price">₦4,000</span>₦3,500 <span>/kg</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="orderProduct('Smoked Catfish', '₦3,500/kg')">
+                                <i class="fas fa-shopping-cart"></i> Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card" data-category="catfish" data-price="50" data-name="Catfish Fingerlings" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Juvenile Catfish">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openModal(this)">
+                                <i class="fas fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Catfish</div>
+                        <h3 class="product-title">Catfish Fingerlings</h3>
+                        <p class="product-description">High-quality fingerlings for fish farmers. Fast-growing and disease-resistant variety.</p>
+                        <div class="product-features">
+                            <span class="product-feature"><i class="fas fa-check"></i> Fast Growing</span>
+                            <span class="product-feature"><i class="fas fa-check"></i> Disease Resistant</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="count">(203 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₦50 <span>/piece (min 100)</span></div>
+                            <button class="add-to-cart-btn" onclick="orderProduct('Catfish Fingerlings', '₦50/piece')">
+                                <i class="fas fa-shopping-cart"></i> Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card" data-category="chicks" data-price="800" data-name="Layer Chicks DOC" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-badge">Popular</div>
+                    <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Day-Old Chicks">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openModal(this)">
+                                <i class="fas fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Day-Old Chicks</div>
+                        <h3 class="product-title">Layer Chicks (DOC)</h3>
+                        <p class="product-description">Healthy day-old layer chicks. Vaccinated and ready for brooding.</p>
+                        <div class="product-features">
+                            <span class="product-feature"><i class="fas fa-check"></i> Vaccinated</span>
+                            <span class="product-feature"><i class="fas fa-check"></i> Healthy</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="count">(167 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₦800 <span>/chick (min 50)</span></div>
+                            <button class="add-to-cart-btn" onclick="orderProduct('Layer Chicks DOC', '₦800/chick')">
+                                <i class="fas fa-shopping-cart"></i> Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card" data-category="chicks" data-price="750" data-name="Broiler Chicks DOC" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1518492104633-130d0cc84637?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Broiler Chicks">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openModal(this)">
+                                <i class="fas fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Day-Old Chicks</div>
+                        <h3 class="product-title">Broiler Chicks (DOC)</h3>
+                        <p class="product-description">Fast-growing broiler chicks. Perfect for meat production. Fully vaccinated.</p>
+                        <div class="product-features">
+                            <span class="product-feature"><i class="fas fa-check"></i> Fast Growing</span>
+                            <span class="product-feature"><i class="fas fa-check"></i> Vaccinated</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="count">(142 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₦750 <span>/chick (min 50)</span></div>
+                            <button class="add-to-cart-btn" onclick="orderProduct('Broiler Chicks DOC', '₦750/chick')">
+                                <i class="fas fa-shopping-cart"></i> Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card" data-category="feed" data-price="12500" data-name="Premium Layer Feed" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-badge new">New</div>
+                    <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Layer Feed">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openModal(this)">
+                                <i class="fas fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Poultry Feed</div>
+                        <h3 class="product-title">Premium Layer Feed</h3>
+                        <p class="product-description">High-protein layer feed formulated for optimal egg production. 25kg bag.</p>
+                        <div class="product-features">
+                            <span class="product-feature"><i class="fas fa-check"></i> High Protein</span>
+                            <span class="product-feature"><i class="fas fa-check"></i> Balanced</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="count">(95 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₦12,500 <span>/25kg</span></div>
+                            <button class="add-to-cart-btn" onclick="orderProduct('Premium Layer Feed', '₦12,500/25kg')">
+                                <i class="fas fa-shopping-cart"></i> Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card" data-category="feed" data-price="13000" data-name="Broiler Starter Feed" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Broiler Feed">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openModal(this)">
+                                <i class="fas fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Poultry Feed</div>
+                        <h3 class="product-title">Broiler Starter/Finisher</h3>
+                        <p class="product-description">Complete broiler feed for rapid growth and excellent meat quality. 25kg bag.</p>
+                        <div class="product-features">
+                            <span class="product-feature"><i class="fas fa-check"></i> Complete Feed</span>
+                            <span class="product-feature"><i class="fas fa-check"></i> Growth Formula</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="count">(67 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₦13,000 <span>/25kg</span></div>
+                            <button class="add-to-cart-btn" onclick="orderProduct('Broiler Starter/Finisher', '₦13,000/25kg')">
+                                <i class="fas fa-shopping-cart"></i> Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card" data-category="eggs" data-price="2200" data-name="Medium Size Eggs" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-badge organic">Organic</div>
+                    <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1506976785307-8732e854ad03?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Medium Eggs">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openModal(this)">
+                                <i class="fas fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Eggs</div>
+                        <h3 class="product-title">Medium Size Eggs</h3>
+                        <p class="product-description">Perfect everyday eggs for households. Fresh and nutritious.</p>
+                        <div class="product-features">
+                            <span class="product-feature"><i class="fas fa-check"></i> Everyday Use</span>
+                            <span class="product-feature"><i class="fas fa-check"></i> Affordable</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="count">(234 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₦2,200 <span>/crate</span></div>
+                            <button class="add-to-cart-btn" onclick="orderProduct('Medium Size Eggs', '₦2,200/crate')">
+                                <i class="fas fa-shopping-cart"></i> Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 11 -->
+                <div class="product-card" data-category="catfish" data-price="1800" data-name="Table Size Catfish" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1510130387422-82bed34b37e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Table Size Catfish">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openModal(this)">
+                                <i class="fas fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Catfish</div>
+                        <h3 class="product-title">Table Size Catfish (500g-800g)</h3>
+                        <p class="product-description">Perfect portion size catfish for single servings. Fresh and ready to cook.</p>
+                        <div class="product-features">
+                            <span class="product-feature"><i class="fas fa-check"></i> Perfect Portion</span>
+                            <span class="product-feature"><i class="fas fa-check"></i> Fresh</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="count">(112 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₦1,800 <span>/kg</span></div>
+                            <button class="add-to-cart-btn" onclick="orderProduct('Table Size Catfish', '₦1,800/kg')">
+                                <i class="fas fa-shopping-cart"></i> Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 12 -->
+                <div class="product-card" data-category="feed" data-price="10000" data-name="Chick Starter Mash" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Chick Starter">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openModal(this)">
+                                <i class="fas fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Poultry Feed</div>
+                        <h3 class="product-title">Chick Starter Mash</h3>
+                        <p class="product-description">Nutrient-rich starter feed for day-old chicks. Supports healthy growth.</p>
+                        <div class="product-features">
+                            <span class="product-feature"><i class="fas fa-check"></i> Nutrient Rich</span>
+                            <span class="product-feature"><i class="fas fa-check"></i> Easy Digest</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="count">(89 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₦10,000 <span>/25kg</span></div>
+                            <button class="add-to-cart-btn" onclick="orderProduct('Chick Starter Mash', '₦10,000/25kg')">
+                                <i class="fas fa-shopping-cart"></i> Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wholesale Section -->
+    <section class="wholesale-section">
+        <div class="wholesale-container">
+            <div class="wholesale-content" data-aos="fade-right">
+                <h2>Wholesale <span>Pricing</span> Available</h2>
+                <p>
+                    Are you a retailer, restaurant owner, or food business? We offer competitive wholesale 
+                    prices for bulk orders. Partner with PrimeField and enjoy reliable supply of premium 
+                    farm products.
+                </p>
+                <div class="wholesale-features">
+                    <div class="wholesale-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Competitive Bulk Pricing</span>
+                    </div>
+                    <div class="wholesale-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Reliable Daily Supply</span>
+                    </div>
+                    <div class="wholesale-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Free Delivery (Min. Order)</span>
+                    </div>
+                    <div class="wholesale-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Flexible Payment Terms</span>
+                    </div>
+                </div>
+                <a href="contact.html" class="btn btn-secondary">
+                    <i class="fas fa-handshake"></i>
+                    Become a Partner
+                </a>
+            </div>
+            <div class="wholesale-image" data-aos="fade-left">
+                <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wholesale Products">
+                <div class="wholesale-badge">
+                    <h3>Up to 30%</h3>
+                    <p>Bulk Discount</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-subtitle">FAQ</div>
+                <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+                <p class="section-description">Got questions? We've got answers.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>How do I place an order?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can place an order by calling us directly at +234 91 2808 2080, sending a WhatsApp message, or filling out the order form on our contact page. We'll confirm your order and arrange delivery.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>What is the minimum order quantity?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For eggs, minimum order is 1 crate (30 eggs). For catfish, minimum is 5kg. For day-old chicks, minimum is 50 chicks. Wholesale orders have different minimums - contact us for details.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>Do you offer delivery services?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer delivery within Delta State and neighboring areas. Delivery is free for orders above ₦50,000. For smaller orders, a nominal delivery fee applies based on location.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>How fresh are your products?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All our products are farm-fresh. Eggs are collected and sorted daily. Catfish are harvested on order to ensure maximum freshness. We guarantee quality on all deliveries.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>What payment methods do you accept?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept bank transfers, cash on delivery (within certain areas), and POS payments. For wholesale partners, we offer flexible credit terms upon approval.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container" data-aos="fade-up">
+            <h2>Ready to Order?</h2>
+            <p>Get farm-fresh products delivered to your doorstep. Contact us today!</p>
+            <div class="cta-buttons">
+                <a href="quote.html" class="btn btn-primary">
+                    <i class="fas fa-file-invoice"></i>
+                    Get a Quote
+                </a>
+                <a href="tel:+2349128082080" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i>
+                    Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="logo1.jpg" alt="PrimeField Logo" class="logo-img">
+                        PrimeField <span>Limited</span>
+                    </a>
+                    <p>
+                        PrimeField Limited is a leading poultry farm specializing in premium egg production 
+                        and catfish distribution. We're committed to quality, sustainability, and customer satisfaction.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Fresh Eggs</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Live Catfish</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Smoked Fish</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Day-Old Chicks</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Poultry Feed</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>PrimeField Farm, Ibusa-Asaba Expressway, Delta State, Nigeria</p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+234 91 2808 2080<br>+234 70 5625 6455</p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@primefield.com<br>sales@primefield.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2006 PrimeField Limited. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="quickViewModal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></div>
+            <div class="modal-image">
+                <img src="" alt="" id="modalImage">
+            </div>
+            <div class="modal-details">
+                <div class="modal-category" id="modalCategory"></div>
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="modal-price" id="modalPrice"></div>
+                <p class="modal-description" id="modalDescription"></p>
+                <div class="modal-features">
+                    <h4>Features:</h4>
+                    <ul id="modalFeatures"></ul>
+                </div>
+                <div class="modal-quantity">
+                    <label>Quantity:</label>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" onclick="decreaseQty()">-</button>
+                        <input type="number" class="quantity-input" id="quantityInput" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQty()">+</button>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-primary" onclick="orderFromModal()">
+                        <i class="fas fa-shopping-cart"></i> Order Now
+                    </button>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Inquire
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            document.querySelector('.preloader').classList.add('hidden');
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Mobile Menu
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Back to Top
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Product Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+        const productCount = document.getElementById('productCount');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+                let visibleCount = 0;
+
+                productCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s ease';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                productCount.textContent = visibleCount;
+            });
+        });
+
+        // Wishlist Toggle
+        document.querySelectorAll('.product-wishlist').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                btn.classList.toggle('active');
+                const icon = btn.querySelector('i');
+                icon.classList.toggle('far');
+                icon.classList.toggle('fas');
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Order Product
+        function orderProduct(productName, price) {
+            const message = `Hello! I'd like to order:\n\nProduct: ${productName}\nPrice: ${price}\n\nPlease provide availability and delivery details.`;
+            const whatsappUrl = `https://wa.me/2349128082080?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Quick View Modal
+        let currentProduct = null;
+
+        function openModal(btn) {
+            const card = btn.closest('.product-card');
+            currentProduct = {
+                image: card.querySelector('.product-image img').src,
+                category: card.querySelector('.product-category').textContent,
+                title: card.querySelector('.product-title').textContent,
+                price: card.querySelector('.product-price').innerHTML,
+                description: card.querySelector('.product-description').textContent,
+                features: Array.from(card.querySelectorAll('.product-feature')).map(f => f.textContent.trim())
+            };
+
+            document.getElementById('modalImage').src = currentProduct.image;
+            document.getElementById('modalCategory').textContent = currentProduct.category;
+            document.getElementById('modalTitle').textContent = currentProduct.title;
+            document.getElementById('modalPrice').innerHTML = currentProduct.price;
+            document.getElementById('modalDescription').textContent = currentProduct.description;
+            
+            const featuresList = document.getElementById('modalFeatures');
+            featuresList.innerHTML = currentProduct.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('');
+
+            document.getElementById('quantityInput').value = 1;
+            document.getElementById('quickViewModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('quickViewModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('quickViewModal').addEventListener('click', (e) => {
+            if (e.target.id === 'quickViewModal') {
+                closeModal();
+            }
+        });
+
+        function increaseQty() {
+            const input = document.getElementById('quantityInput');
+            input.value = parseInt(input.value) + 1;
+        }
+
+        function decreaseQty() {
+            const input = document.getElementById('quantityInput');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        function orderFromModal() {
+            const qty = document.getElementById('quantityInput').value;
+            const priceText = document.getElementById('modalPrice').textContent;
+            const message = `Hello! I'd like to order:\n\nProduct: ${currentProduct.title}\nQuantity: ${qty}\nUnit Price: ${priceText}\n\nPlease provide availability and delivery details.`;
+            const whatsappUrl = `https://wa.me/2349128082080?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            closeModal();
+        }
+
+        // Sort Products
+        document.getElementById('sortSelect').addEventListener('change', function() {
+            const sortValue = this.value;
+            const grid = document.querySelector('.products-grid');
+            const cards = Array.from(document.querySelectorAll('.product-card'));
+
+            cards.sort((a, b) => {
+                const priceA = parseInt(a.dataset.price);
+                const priceB = parseInt(b.dataset.price);
+                const nameA = a.dataset.name.toLowerCase();
+                const nameB = b.dataset.name.toLowerCase();
+
+                switch(sortValue) {
+                    case 'price-low':
+                        return priceA - priceB;
+                    case 'price-high':
+                        return priceB - priceA;
+                    case 'name':
+                        return nameA.localeCompare(nameB);
+                    default:
+                        return 0;
+                }
+            });
+
+            cards.forEach(card => grid.appendChild(card));
+        });
+
+        // Keyboard support for modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('quickViewModal').classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Animation keyframe
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    
+    <!-- Chatbot Script -->
+    <script src="primefield-chat.js"></script>
+</body>
+</html>
