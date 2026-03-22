@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact PrimeField Limited - Get in touch for orders, inquiries, and partnerships.">
+    <title>Contact Us | PrimeField Limited</title>
+    <link rel="icon" href="logo1.jpg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #1a5d1a;
+            --primary-dark: #0d3d0d;
+            --primary-light: #3d8b3d;
+            --secondary: #f4a024;
+            --secondary-dark: #d4850a;
+            --white: #ffffff;
+            --cream: #faf8f5;
+            --dark: #1a1a2e;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --gradient-1: linear-gradient(135deg, #1a5d1a 0%, #3d8b3d 100%);
+            --gradient-2: linear-gradient(135deg, #f4a024 0%, #f9c74f 100%);
+            --shadow: 0 10px 40px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: var(--dark); background: var(--cream); overflow-x: hidden; }
+
+        .preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--gradient-1); display: flex; justify-content: center; align-items: center; z-index: 99999; transition: opacity 0.5s, visibility 0.5s; }
+        .preloader.hidden { opacity: 0; visibility: hidden; }
+        .preloader-content { text-align: center; color: var(--white); }
+        .preloader-logo { margin-bottom: 20px; animation: pulse 1.5s infinite; }
+        .preloader-logo img { width: 120px; height: 120px; object-fit: contain; border-radius: 20px; background: var(--white); padding: 10px; }
+        .preloader-text { font-size: 1.5rem; font-weight: 700; margin-top: 15px; }
+        .loader { width: 60px; height: 60px; border: 4px solid rgba(255,255,255,0.3); border-top-color: var(--secondary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(255,255,255,0.98); box-shadow: var(--shadow); }
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 1.8rem; font-weight: 800; text-decoration: none; color: var(--primary); }
+        .logo-img { width: 55px; height: 55px; object-fit: contain; border-radius: 12px; }
+        .logo span { color: var(--secondary); }
+        .nav-links { display: flex; list-style: none; gap: 35px; align-items: center; }
+        .nav-links a { text-decoration: none; font-weight: 500; font-size: 0.95rem; color: var(--dark); position: relative; transition: color 0.3s; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--secondary); transition: width 0.3s; }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .nav-btn { background: var(--gradient-2); color: var(--dark) !important; padding: 12px 28px !important; border-radius: 50px; font-weight: 600 !important; }
+        .nav-btn::after { display: none !important; }
+        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
+        .hamburger span { width: 30px; height: 3px; background: var(--dark); border-radius: 3px; transition: all 0.3s; }
+
+        .page-hero { padding: 180px 5% 100px; background: linear-gradient(135deg, rgba(26,93,26,0.95) 0%, rgba(13,61,13,0.9) 100%), url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80'); background-size: cover; background-position: center; text-align: center; position: relative; }
+        .page-hero::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to top, var(--cream), transparent); }
+        .page-hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+        .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: var(--white); margin-bottom: 20px; }
+        .page-hero h1 span { color: var(--secondary); }
+        .page-hero p { font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: 30px; }
+        .breadcrumb { display: flex; justify-content: center; gap: 15px; align-items: center; }
+        .breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--secondary); }
+        .breadcrumb i { color: var(--secondary); font-size: 0.8rem; }
+        .breadcrumb span { color: var(--secondary); font-weight: 600; }
+
+        .contact-section { padding: 100px 5%; background: var(--white); }
+        .contact-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+
+        .contact-info { position: sticky; top: 120px; }
+        .contact-info h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--dark); margin-bottom: 20px; }
+        .contact-info h2 span { color: var(--primary); }
+        .contact-info > p { color: var(--gray); font-size: 1.05rem; margin-bottom: 40px; line-height: 1.8; }
+
+        .info-cards { display: flex; flex-direction: column; gap: 25px; }
+        .info-card { display: flex; gap: 20px; padding: 30px; background: var(--cream); border-radius: 20px; transition: all 0.4s; }
+        .info-card:hover { transform: translateX(10px); box-shadow: var(--shadow); }
+        .info-card-icon { width: 70px; height: 70px; background: var(--gradient-1); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--white); flex-shrink: 0; }
+        .info-card-content h3 { font-size: 1.2rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+        .info-card-content p { color: var(--gray); font-size: 0.95rem; line-height: 1.7; }
+        .info-card-content a { color: var(--primary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .info-card-content a:hover { color: var(--secondary); }
+
+        .social-links { margin-top: 40px; }
+        .social-links h3 { font-size: 1.2rem; font-weight: 700; color: var(--dark); margin-bottom: 20px; }
+        .social-icons { display: flex; gap: 15px; }
+        .social-icons a { width: 50px; height: 50px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.2rem; text-decoration: none; transition: all 0.3s; }
+        .social-icons a:hover { background: var(--gradient-2); color: var(--dark); transform: translateY(-5px); }
+
+        .contact-form-wrapper { background: var(--cream); border-radius: 30px; padding: 50px; }
+        .contact-form-wrapper h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+        .contact-form-wrapper > p { color: var(--gray); margin-bottom: 35px; }
+
+        .contact-form { display: flex; flex-direction: column; gap: 25px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .form-group { display: flex; flex-direction: column; gap: 10px; }
+        .form-group label { font-weight: 600; color: var(--dark); font-size: 0.95rem; }
+        .form-group label span { color: #e74c3c; }
+        .form-group input, .form-group select, .form-group textarea { padding: 16px 20px; border: 2px solid var(--light-gray); border-radius: 12px; font-size: 1rem; font-family: 'Poppins', sans-serif; transition: all 0.3s; background: var(--white); }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(26,93,26,0.1); }
+        .form-group textarea { min-height: 150px; resize: vertical; }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: #adb5bd; }
+
+        .form-checkbox { display: flex; align-items: flex-start; gap: 12px; }
+        .form-checkbox input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--primary); margin-top: 3px; }
+        .form-checkbox label { font-size: 0.9rem; color: var(--gray); line-height: 1.5; }
+        .form-checkbox label a { color: var(--primary); text-decoration: none; }
+
+        .submit-btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 18px 40px; background: var(--gradient-1); color: var(--white); border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: 'Poppins', sans-serif; }
+        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(26,93,26,0.3); }
+        .submit-btn i { font-size: 1rem; }
+
+        .map-section { padding: 0 5% 100px; background: var(--white); }
+        .map-container { max-width: 1400px; margin: 0 auto; }
+        .map-header { text-align: center; margin-bottom: 40px; }
+        .section-subtitle { display: inline-flex; align-items: center; gap: 10px; color: var(--primary); font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; }
+        .section-subtitle::before, .section-subtitle::after { content: ''; width: 30px; height: 2px; background: var(--secondary); }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--dark); }
+        .section-title span { color: var(--primary); }
+        .map-wrapper { border-radius: 30px; overflow: hidden; box-shadow: var(--shadow-lg); height: 450px; }
+        .map-wrapper iframe { width: 100%; height: 100%; border: none; }
+
+        .faq-section { padding: 100px 5%; background: var(--cream); }
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .faq-header { text-align: center; margin-bottom: 50px; }
+        .faq-item { background: var(--white); border-radius: 15px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .faq-question { padding: 25px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.3s; }
+        .faq-question:hover { background: rgba(26,93,26,0.03); }
+        .faq-question h3 { font-size: 1.1rem; font-weight: 600; color: var(--dark); margin: 0; }
+        .faq-question i { font-size: 1.2rem; color: var(--primary); transition: transform 0.3s; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-answer { padding: 0 30px; max-height: 0; overflow: hidden; transition: all 0.3s; }
+        .faq-item.active .faq-answer { padding: 0 30px 25px; max-height: 500px; }
+        .faq-answer p { color: var(--gray); line-height: 1.8; }
+
+        .footer { background: var(--dark); color: var(--white); padding-top: 80px; }
+        .footer-container { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .footer-brand .logo { margin-bottom: 25px; color: var(--white); }
+        .footer-brand p { color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 25px; }
+        .footer-social { display: flex; gap: 15px; }
+        .footer-social a { width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: all 0.3s; }
+        .footer-social a:hover { background: var(--gradient-2); color: var(--dark); transform: translateY(-5px); }
+        .footer-column h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 25px; position: relative; padding-bottom: 15px; }
+        .footer-column h3::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background: var(--secondary); border-radius: 3px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 15px; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: all 0.3s; display: flex; align-items: center; gap: 10px; }
+        .footer-links a:hover { color: var(--secondary); padding-left: 10px; }
+        .footer-contact-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
+        .footer-contact-item i { color: var(--secondary); font-size: 1.2rem; margin-top: 3px; }
+        .footer-contact-item p { color: rgba(255,255,255,0.7); margin: 0; line-height: 1.6; }
+        .footer-bottom { padding: 25px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .footer-bottom p { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+        .footer-bottom-links { display: flex; gap: 30px; }
+        .footer-bottom-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; }
+        .footer-bottom-links a:hover { color: var(--secondary); }
+
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.3rem; text-decoration: none; opacity: 0; visibility: hidden; transition: all 0.4s; z-index: 999; box-shadow: var(--shadow); }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover { transform: translateY(-5px); background: var(--gradient-2); color: var(--dark); }
+
+        /* Success Message */
+        .form-success { display: none; text-align: center; padding: 40px; }
+        .form-success.show { display: block; }
+        .form-success i { font-size: 4rem; color: var(--primary); margin-bottom: 20px; }
+        .form-success h3 { font-size: 1.8rem; color: var(--dark); margin-bottom: 15px; }
+        .form-success p { color: var(--gray); margin-bottom: 25px; }
+
+        @media (max-width: 992px) {
+            .nav-links { position: fixed; top: 0; right: -100%; width: 80%; max-width: 400px; height: 100vh; background: var(--white); flex-direction: column; justify-content: center; padding: 50px; transition: right 0.4s; box-shadow: -10px 0 30px rgba(0,0,0,0.1); }
+            .nav-links.active { right: 0; }
+            .hamburger { display: flex; }
+            .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+            .contact-container { grid-template-columns: 1fr; }
+            .contact-info { position: static; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-column h3::after { left: 50%; transform: translateX(-50%); }
+            .footer-social, .footer-links a, .footer-contact-item { justify-content: center; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .contact-form-wrapper { padding: 30px 20px; }
+        }
+        @media (max-width: 480px) {
+            .page-hero h1 { font-size: 2rem; }
+            .logo { font-size: 1.5rem; }
+            .logo-img { width: 45px; height: 45px; }
+            .info-card { flex-direction: column; text-align: center; }
+            .social-icons { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo"><img src="logo1.jpg" alt="PrimeField"></div>
+            <div class="preloader-text">PrimeField Limited</div>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo1.jpg" alt="PrimeField Logo" class="logo-img">
+            PrimeField <span>Limited</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="quote.html" class="nav-btn">Get Quote</a></li>
+        </ul>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="page-hero-content" data-aos="fade-up">
+            <h1>Contact <span>Us</span></h1>
+            <p>We'd love to hear from you. Get in touch with our team.</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Contact</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info" data-aos="fade-right">
+                <h2>Get In <span>Touch</span></h2>
+                <p>Have questions about our products or services? Want to place an order or become a partner? We're here to help!</p>
+                
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-card-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-card-content">
+                            <h3>Visit Our Farm</h3>
+                            <p>PrimeField Farm, Ibusa-Asaba Expressway, Delta State, Nigeria</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-card-content">
+                            <h3>Call Us</h3>
+                            <p><a href="tel:+2349128082080">+234 91 2808 2080</a><br>
+                            <a href="tel:+2347056256455">+234 70 5625 6455</a></p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-card-content">
+                            <h3>Email Us</h3>
+                            <p><a href="mailto:info@primefield.com">info@primefield.com</a><br>
+                            <a href="mailto:sales@primefield.com">sales@primefield.com</a></p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-card-content">
+                            <h3>Working Hours</h3>
+                            <p>Monday - Friday: 8:00 AM - 6:00 PM<br>
+                            Saturday: 9:00 AM - 4:00 PM<br>
+                            Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper" data-aos="fade-left">
+                <h2>Send Us a Message</h2>
+                <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name <span>*</span></label>
+                            <input type="text" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address <span>*</span></label>
+                            <input type="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone Number <span>*</span></label>
+                            <input type="tel" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <select name="subject">
+                                <option value="">Select a subject</option>
+                                <option value="order">Place an Order</option>
+                                <option value="inquiry">Product Inquiry</option>
+                                <option value="wholesale">Wholesale Partnership</option>
+                                <option value="training">Farm Training</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Message <span>*</span></label>
+                        <textarea name="message" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="consent" required>
+                        <label for="consent">I agree to the <a href="#">Privacy Policy</a> and consent to being contacted regarding my inquiry.</label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+
+                <div class="form-success" id="formSuccess">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Message Sent Successfully!</h3>
+                    <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                    <button class="submit-btn" onclick="resetForm()">Send Another Message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-header" data-aos="fade-up">
+                <div class="section-subtitle">Our Location</div>
+                <h2 class="section-title">Find <span>Us</span></h2>
+            </div>
+            <div class="map-wrapper" data-aos="fade-up">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127066.69826893673!2d6.6516113!3d6.2055553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1043f3b8d0d1f4e1%3A0x7e9d0c8c8c8c8c8c!2sAsaba%2C%20Delta%20State%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header" data-aos="fade-up">
+                <div class="section-subtitle">FAQ</div>
+                <h2 class="section-title">Common <span>Questions</span></h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>What are your delivery areas?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We deliver to all areas within Delta State and neighboring states including Edo, Anambra, Rivers, and Bayelsa. For other locations, please contact us for special arrangements.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>How do I place a bulk order?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For bulk orders, you can call us directly, send a WhatsApp message, or fill out the contact form above. We'll respond with pricing and availability within hours.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>Do you offer credit facilities?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer flexible credit terms for established wholesale partners. New customers can apply for credit after 3 months of consistent orders with good payment history.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>Can I visit your farm?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We welcome farm visits. Please schedule your visit by calling us in advance so we can arrange a proper tour of our facilities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="logo1.jpg" alt="PrimeField Logo" class="logo-img">
+                        PrimeField <span>Limited</span>
+                    </a>
+                    <p>PrimeField Limited is a leading poultry farm specializing in premium egg production and catfish distribution.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Fresh Eggs</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Live Catfish</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Smoked Fish</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Day-Old Chicks</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+234 91 2808 2080</p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@primefield.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2006 PrimeField Limited. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        window.addEventListener('load', () => document.querySelector('.preloader').classList.add('hidden'));
+        AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+        
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('visible', window.scrollY > 500);
+        });
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('formSuccess').classList.add('show');
+        });
+
+        function resetForm() {
+            document.getElementById('contactForm').reset();
+            document.getElementById('contactForm').style.display = 'flex';
+            document.getElementById('formSuccess').classList.remove('show');
+        }
+    </script>
+    <script src="primefield-chat.js"></script>
+</body>
+</html>
